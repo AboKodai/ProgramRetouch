@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -26,20 +27,24 @@
 							<br> <br>
 							<div class="row">
 								<div class="input-field col s6">
-									<input type="text" name="user_name" value="${udb.name}"> <label>名前</label>
+									<input type="text" name="user_name" value="${udb.name}">
+									<label>名前</label>
 								</div>
 								<div class="input-field col s6">
-									<input type="text" name="login_id" value="${udb.loginId}"> <label>ログインID</label>
+									<input type="text" name="login_id" value="${udb.loginId}">
+									<label>ログインID</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<input type="text" name="user_address" value="${udb.address}"> <label>住所</label>
+									<input type="text" name="user_address" value="${udb.address}">
+									<label>住所</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col s12">
-									<button class="btn  waves-effect waves-light  col s4 offset-s4" type="submit" name="action">更新</button>
+									<button class="btn  waves-effect waves-light  col s4 offset-s4"
+										type="submit" name="action">更新</button>
 								</div>
 							</div>
 						</form>
@@ -62,20 +67,19 @@
 								</tr>
 							</thead>
 							<tbody>
+							<c:forEach var="BuyDataBeans" items="${bdbList}">
+									<tr>
 
-								<tr>
-									<td class="center"><a href="UserBuyHistoryDetail?buy_id=1" class="btn-floating btn waves-effect waves-light "> <i class="material-icons">details</i></a></td>
-									<td class="center">1234年56月78日90時12分</td>
-									<td class="center">サンプル配送料金</td>
-									<td class="center"><123456789円円</td>
-								</tr>
-								<tr>
-									<td class="center"><a href="UserBuyHistoryDetail?buy_id=2" class="btn-floating btn waves-effect waves-light "> <i class="material-icons">details</i></a></td>
-									<td class="center">1234年56月78日90時12分</td>
-									<td class="center">サンプル配送料金</td>
-									<td class="center"><123456789円円</td>
-								</tr>
+										<td class="center"><a
+											href="UserBuyHistoryDetail?buy_id=${BuyDataBeans.id}"
+											class="btn-floating btn waves-effect waves-light "> <i
+												class="material-icons">details</i></a></td>
+										<td class="center">${BuyDataBeans.formatDate}</td>
+										<td class="center">${BuyDataBeans.deliveryMethodName}</td>
+										<td class="center">${BuyDataBeans.totalPrice}円</td>
 
+									</tr>
+									</c:forEach>
 							</tbody>
 						</table>
 					</div>

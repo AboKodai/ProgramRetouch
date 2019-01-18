@@ -2,6 +2,7 @@ package ec;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -52,7 +53,7 @@ public class BuyResult extends HttpServlet {
 			request.setAttribute("resultBDB", resultBDB);
 
 			// 購入アイテム情報
-			ArrayList<ItemDataBeans> buyIDBList = BuyDetailDAO.getItemDataBeansListByBuyId(buyId);
+			List<ItemDataBeans> buyIDBList = BuyDetailDAO.getItemDataBeansListByBuyId(buyId);
 			request.setAttribute("buyIDBList", buyIDBList);
 
 			// 購入完了ページ

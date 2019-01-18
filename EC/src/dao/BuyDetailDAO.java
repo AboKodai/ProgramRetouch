@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import base.DBManager;
 import beans.BuyDetailDataBeans;
@@ -90,7 +91,7 @@ public class BuyDetailDAO {
      *             購入詳細情報のデータを持つJavaBeansのリスト
      * @throws SQLException
      */
-	public static ArrayList<ItemDataBeans> getItemDataBeansListByBuyId(int buyId) throws SQLException {
+	public static List<ItemDataBeans> getItemDataBeansListByBuyId(int buyId) throws SQLException {
 		Connection con = null;
 		PreparedStatement st = null;
 		try {
